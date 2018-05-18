@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+        
+    #menu {
+    float:left;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    background-color:#A73297;
+    border-radius: 8px 8px 8px 8px;
+    border-bottom: 4px solid #53A6EB;
+        
+}
+
+#menu li {
+    float:left;
+    list-style:none;
+    animation-name: foto;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#menu li a {
+    background-color: #A73297;
+    color: #FFFFFF;
+    padding: 0px 20px;
+    text-decoration: none;
+    width: 100%;
+    float:left;
+}
+
+#menu li a:hover {
+    background-color: #EEEEEE;
+    color: #A73297;
+}
+
+.menu_select {
+    width:97%;
+    float:left;
+    display:none;
+    position:relative;
+}
+
+#selectme {
+    width:80%;
+    background-color:#A73297;
+    color:#ffffff;
+    padding:10px;
+    font-weight: bold;
+    text-align:left;
+    cursor:pointer;
+    float:left;
+      animation-name: foto;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+#selectmeMAS {
+    width:0%;
+    background-color:#A73297;
+    color:#ffffff;
+    font-weight: bold;
+    text-align:right;
+    cursor:pointer;
+    margin-top: -1%;
+    float:right;
+    font-size: 150%;
+    
+}
+
+ul#options {
+    width:100%;
+    float:left;
+    margin:0px;
+    padding:0px;
+    display:none;
+      animation-name: foto;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+ul#options li {
+    width:98%;
+    float:left;
+
+}
+
+ul#options li a {
+    color: #ffffff;
+    padding:10px;
+    font-weight: bold;
+    text-align:left;
+    text-decoration:none;
+    cursor:pointer;
+    margin-bottom:1px;
+    width:100%;
+    float:left;
+}
+
+ul#options li a:hover {
+    color:#000000;
+    background-color:#EEEEEE;
+    text-decoration: none;
+}
+
+ul#options li:hover {
+
+}
+
+#arrow {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+    
+}
+
+.down {
+    background-image:url("../images/plus-white.png");
+    background-repeat:no-repeat;
+    height:20px;
+    width:20px;
+}
+
+.up {
+    background-image:url("../images/minus-white.png");
+    background-repeat:no-repeat;
+    height:20px; 
+    width:20px;
+}
+#logo{
+    float: left;
+    width: 20%;
+    margin-top: 10px;
+    animation-name: c;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+h1{
+    color: white;
+    margin-left: 40%;
+    font-size: 300%;
+    margin-top: 1%;
+
+}
+#logo >img{
+    border-radius: 8px 8px 8px 8px;
+    height: 93px;
+    width: 147px;
+    margin-bottom: 10px;
+  margin-left: 20%;
+}
+  
+
+@media only screen and (max-width: 980px) {
+nav ul { display: none; }
+nav select { display: inline-block; width:100%; background-color: #A73297; color:#FFF; 
+    font-size: 16px; 
+    font-weight: bold; }
+nav .menu_select { display: inline-block; width:100%; background-color: #A73297; color:#FFF; font-size: 16px; font-weight: bold; }
+}
+        @keyframes foto{
+            0%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: translateY(-20px);
+            }
+        }
+@keyframes c{
+             0%{
+                 transform: rotateX(0deg);
+             }
+             100%{
+                  transform: rotateX(360deg);
+             }
+
+	</style>
+</head>
+<body>
+<nav>
+    <ul id="menu">
+        <div id="logo">
+            <img src="img/logo.jpg">
+        </div>
+        <div id="titulo">
+            <h1> Danielle Collection</h1>
+        </div>
+        <li><a href="#">INICIO</a></li>
+        <li><a href="#">PRODUCTOS</a></li>
+        <li><a href="#">CONTACTO</a></li>
+        <li><a href="#">CARRITO</a></li>
+        <li><a href="#">FORMA DE PAGO</a></li>
+    </ul>
+
+    <div class="menu_select">
+       <div id="logo">
+            <img src="img/logo.jpg">
+        </div>
+        <div id="titulo">
+            <h1> Danielle Collection</h1>
+        </div>
+        <div id="selectme">CATEGORIAS
+                <label for="toggle" id="selectmeMAS">
+                    &#9776;
+                </label>
+        </div>
+        <span id="arrow" class="down"></span>
+        <ul id="options">
+        <li><a href="#">INICIO</a></li>
+        <li><a href="#">PRODUCTOS</a></li>
+        <li><a href="#">CONTACTO</a></li>
+        <li><a href="#">CARRITO</a></li>
+        <li><a href="#">FORMA DE PAGO</a></li>
+        </ul>
+    </div>
+    
+</nav>
+	<script src="js/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('#selectme').on('click', function() {
+        if ($('ul#options').is(':hidden')) {
+           $('ul#options').show();
+           $('#arrow').removeClass('down');
+           $('#arrow').addClass('up');
+        }
+        else {
+            $('ul#options').hide();
+            $('#arrow').removeClass('up');
+            $('#arrow').addClass('down');
+        }       
+    });
+    
+    $('#arrow').on('click', function() {
+        if ($(this).hasClass('down')) {
+           $('ul#options').show();
+           $(this).removeClass('down');
+           $(this).addClass('up');
+        }
+        else {
+            $('ul#options').hide();
+            $(this).removeClass('up');
+            $(this).addClass('down');
+        }       
+    });
+
+    $('#options li a').on('click', function() {
+        var value = $(this).text();
+        $('#selectme').text(value);
+        $('ul#options').hide();
+    });
+});
+       
+</script>
+</body>
+</html>
